@@ -15,7 +15,7 @@ build:
 	cp -v $(my_wasm) public/
 
 optim:
-	wasm-opt -all -O2 public/miso-invaders.wasm -o public/miso-invaders.wasm
+	wasm-opt -all --disable-compact-imports -O2 public/miso-invaders.wasm -o public/miso-invaders.wasm
 	wasm-tools strip -o public/miso-invaders.wasm public/miso-invaders.wasm
 
 serve:
