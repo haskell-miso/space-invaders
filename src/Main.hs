@@ -59,7 +59,7 @@ data Resources = Resources
 ----------------------------------------------------------------------
 -- view handler
 ----------------------------------------------------------------------
-handleView :: Resources -> Model -> View Model Action
+handleView :: Resources -> Model -> View () () Model Action
 handleView res model = vfrag
   [ p_ [] [ "Usage: left/right to move, space to fire and enter to start..." ]
   , Canvas.canvas 
@@ -127,7 +127,7 @@ drawGame res game = do
 -- update handler
 ----------------------------------------------------------------------
 
-handleUpdate :: Resources -> Action -> Effect parent Model Action
+handleUpdate :: Resources -> Action -> Effect () () Model Action
 
 handleUpdate _ ActionReset = do
   mGame %= resetGame
